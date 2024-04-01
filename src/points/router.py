@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends
 from sqlalchemy import select, insert, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.data.database import get_async_session
+from data.database import get_async_session
 
-from src.points.models import PointTable
-from src.points.schemas import PointAdd
+from points.models import PointTable
+from points.schemas import PointAdd
 
 
 router = APIRouter(

@@ -1,7 +1,5 @@
-from sqlalchemy import Table, Column, Integer, String, MetaData
-
-
-metadata = MetaData()
+from sqlalchemy import Table, Column, Integer, String
+from data.database import metadata
 
 PointTable = Table(
     "Points",

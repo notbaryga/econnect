@@ -2,9 +2,9 @@ from fastapi import APIRouter, Depends
 from sqlalchemy import select, insert, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.data.database import get_async_session
-from src.events.models import EventTable
-from src.events.schemas import EventAdd
+from data.database import get_async_session
+from events.models import EventTable
+from events.schemas import EventAdd, EventType
 
 
 router = APIRouter(
@@ -19,8 +19,12 @@ async def get_event_by_id(id: int, session: AsyncSession = Depends(get_async_ses
     return result.mappings().all()
 
 @router.get("/")
-async def get_events(session: AsyncSession = Depends(get_async_session)):
+async def get_events(session: AsyncSession = Depends(get_async_session), type: EventType = None):
     query = select(EventTable)
+
+    if type:
+        query = query.where(EventTable.c.type == type.value)
+
     result = await session.execute(query)
     return result.mappings().all()
 

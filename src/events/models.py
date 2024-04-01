@@ -1,10 +1,8 @@
-from sqlalchemy import Table, Column, Integer, String, MetaData, DateTime
-
-
-metadata = MetaData()
+from sqlalchemy import Table, Column, Integer, String, DateTime
+from data.database import metadata
 
 EventTable = Table(
-    "events",
+    "Events",
     metadata,
     Column("id", Integer, primary_key=True, nullable=False),
     Column("name", String),
