@@ -23,6 +23,9 @@ class EventAdd(BaseModel):
     photo: Optional[str] = None
     reward: Optional[int] = None
 
+    class Config:
+        use_enum_values = True
+
 class Event(EventAdd):
     id: int
     model_config = ConfigDict(from_attributes=True)
