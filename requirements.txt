@@ -2,5 +2,6 @@ fastapi[all]
 fastapi-users[sqlalchemy]
 python-dotenv
 sqlalchemy
-aiosqlite
 uvicorn
+asyncpg
+alembic==1.11.1

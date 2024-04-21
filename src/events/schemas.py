@@ -22,6 +22,7 @@ class EventAdd(BaseModel):
     type: EventType
     photo: Optional[str] = None
     reward: Optional[int] = None
+    creator_id: Optional[int] = None
 
     class Config:
         use_enum_values = True
